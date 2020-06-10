@@ -1,19 +1,19 @@
 # Flutter build
 variables:
-    projectDirectory: ''
-  trigger:
+    projectDirectory: './'
+trigger:
   - master
-  jobs:
-    - job: Android
-      pool:
-        vmImage: 'ubuntu-latest'
-      steps:
-      - task: FlutterInstall@0
-        inputs:
-          channel: 'stable'
-          version: 'latest'
-      
-      - task: FlutterBuild@0
-        inputs:
-          target: apk
-          projectDirectory: $(projectDirectory)
+jobs:
+  - job: Android
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: FlutterInstall@0
+      inputs:
+        channel: 'stable'
+        version: 'latest'
+    
+    - task: FlutterBuild@0
+      inputs:
+        target: apk
+        projectDirectory: $(projectDirectory)
